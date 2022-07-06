@@ -9,6 +9,8 @@
     "start:dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts",
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
+    "style:check": "prettier --check 'src/**/*.{ts,js}' 'test/**/*.{ts,js}'",
+    "style:fix": "prettier --write 'src/**/*.{ts,js}' 'test/**/*.{ts,js}'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:functional": "jest --projects ./test --runInBand"
   },
@@ -25,6 +27,7 @@
     "@typescript-eslint/parser": "^5.30.5",
     "eslint": "^8.19.0",
     "jest": "^28.1.2",
+    "prettier": "^2.7.1",
     "supertest": "^6.2.4",
     "ts-jest": "^28.0.5",
     "ts-node-dev": "^2.0.0",
