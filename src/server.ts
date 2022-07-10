@@ -1,10 +1,10 @@
+import './util/module-alias';
 import { Server } from '@overnightjs/core';
 import bodyParser from 'body-parser';
 import { Application } from 'express';
-import { ForecastController } from './controllers/forecast';
-import './util/module-alias';
+import { ForecastController } from '@src/controllers/forecast';
 import * as database from '@src/database';
-import { BeachesController } from './controllers/beaches';
+import { BeachesController } from '@src/controllers/beaches';
 
 export class SetupServer extends Server {
   constructor(private PORT = 3000) {
@@ -37,5 +37,11 @@ export class SetupServer extends Server {
 
   public getApp(): Application {
     return this.app;
+  }
+
+  public start(): void {
+    this.app.listen(this.PORT, () =>
+      console.info(`Server listening on port ${this.PORT}`)
+    );
   }
 }

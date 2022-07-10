@@ -1,7 +1,7 @@
 import { Controller, Get } from '@overnightjs/core';
+import { Beach } from '@src/models/beach';
 import { Request, Response } from 'express';
 import { Forecast } from '@src/services/forecast';
-import { Beach } from '@src/models/beach';
 
 const forecast = new Forecast();
 @Controller('forecast')
