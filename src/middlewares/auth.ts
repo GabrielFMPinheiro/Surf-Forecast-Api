@@ -11,6 +11,7 @@ export function authMiddleware(
     const decoded = AuthService.decodeToken(token as string);
 
     req.decoded = decoded;
+
     next();
   } catch (err) {
     if (err instanceof Error) {

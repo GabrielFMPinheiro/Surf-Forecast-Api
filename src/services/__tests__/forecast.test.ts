@@ -24,7 +24,7 @@ describe('Forecast Service', () => {
         lng: 151.289824,
         name: 'Manly',
         position: BeachPosition.E,
-        // user: 'some-id',
+        userId: 'fake-id',
       },
     ];
     const expectedResponse = [
@@ -107,7 +107,7 @@ describe('Forecast Service', () => {
         lng: 151.289824,
         name: 'Manly',
         position: BeachPosition.E,
-        // user: 'some-id',
+        userId: 'fake-id',
       },
     ];
 
