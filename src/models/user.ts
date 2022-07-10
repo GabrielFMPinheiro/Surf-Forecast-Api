@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import AuthService from '@src/services/auth';
 export interface User {
   _id?: string;
@@ -11,9 +11,7 @@ export enum CUSTOM_VALIDATION {
   DUPLICATED = 'DUPLICATED',
 }
 
-export interface UserModel extends Omit<User, '_id'>, Document {}
-
-const schema = new Schema<UserModel>(
+const schema = new Schema(
   {
     name: { type: String, required: true },
     email: {
