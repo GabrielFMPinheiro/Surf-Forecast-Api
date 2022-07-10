@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "yarn build && node dist/src/index.js",
+    "start": "node dist/src/index.js",
     "start:dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules src/index.ts",
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
@@ -14,6 +14,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:functional": "jest --projects ./test --runInBand",
     "test:unit": "jest"
+  },
+  "engines": {
+    "node": "12"
   },
   "keywords": [],
   "author": "",
