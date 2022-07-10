@@ -15,9 +15,6 @@
     "test:functional": "jest --projects ./test --runInBand",
     "test:unit": "jest"
   },
-  "engines": {
-    "node": "12"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
