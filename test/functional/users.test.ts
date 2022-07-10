@@ -1,4 +1,5 @@
 import { User } from '@src/models/user';
+import AuthService from '@src/services/auth';
 
 describe('Users functional tests', () => {
   beforeEach(async () => {
@@ -6,7 +7,7 @@ describe('Users functional tests', () => {
   });
 
   describe('When creating a user', () => {
-    it('should create a user with success', async () => {
+    it('should successfully create a new user with encrypted password', async () => {
       const newUser = {
         name: 'John Doe',
         email: 'john@gmail.com',
@@ -14,7 +15,15 @@ describe('Users functional tests', () => {
       };
       const response = await global.testRequest.post('/users').send(newUser);
       expect(response.status).toBe(201);
-      expect(response.body).toEqual(expect.objectContaining(newUser));
+      expect(
+        AuthService.comparePasswords(newUser.password, response.body.password)
+      ).resolves.toBeTruthy();
+      expect(response.body).toEqual(
+        expect.objectContaining({
+          ...newUser,
+          ...{ password: expect.any(String) },
+        })
+      );
     });
 
     it('Should return a validation error when a field is missing', async () => {
