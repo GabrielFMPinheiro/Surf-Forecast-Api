@@ -11,7 +11,7 @@
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "style:check": "prettier --check 'src/**/*.{ts,js}' 'test/**/*.{ts,js}'",
     "style:fix": "prettier --write 'src/**/*.{ts,js}' 'test/**/*.{ts,js}'",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn lint && yarn style:check && yarn test:unit && yarn test:functional",
     "test:functional": "jest --projects ./test --runInBand",
     "test:unit": "jest"
   },
