@@ -7,6 +7,8 @@ import * as database from '@src/database';
 import { BeachesController } from '@src/controllers/beaches';
 import { UserController } from '@src/controllers/users';
 import logger from './logger';
+import cors from 'cors';
+import expressPino from 'express-pino-logger';
 
 export class SetupServer extends Server {
   constructor(private PORT = 3000) {
@@ -21,6 +23,12 @@ export class SetupServer extends Server {
 
   private setupExpress(): void {
     this.app.use(bodyParser.json());
+    this.app.use(expressPino({ logger }));
+    this.app.use(
+      cors({
+        origin: '*',
+      })
+    );
   }
 
   private setupControllers(): void {
